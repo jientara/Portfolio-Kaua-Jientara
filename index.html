@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Pessoal</title> <style>
+        /* CSS Nativo e organização visual [cite: 11, 98] */
+        :root {
+            --bg-color: #0d0d0d;
+            --text-color: #e0e0e0;
+            --accent-color: #00ff40;
+            --nav-bg: #1a1a1a;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        header {
+            background-color: var(--nav-bg);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 15px 0;
+        }
+        nav ul li { margin: 0 20px; }
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover { color: var(--accent-color); }
+        section {
+            padding: 100px 20px 50px;
+            min-height: 80vh;
+            max-width: 800px;
+            margin: auto;
+            border-bottom: 1px solid #333;
+        }
+        h1, h2 { color: var(--accent-color); }
+        .portfolio-grid { display: flex; gap: 20px; flex-wrap: wrap; }
+        .card {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+            flex: 1;
+            min-width: 250px;
+        }
+        form { display: flex; flex-direction: column; gap: 15px; }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            background: #222;
+            border: 1px solid #444;
+            color: white;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: var(--accent-color);
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover { background-color: #00cc33; }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre mim</a></li>
+                <li><a href="#formacao">Formação</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="sobre">
+        <h2>Sobre mim</h2>
+        <p>Olá! Sou um desenvolvedor web e programador residente em Canoinhas, Santa Catarina. Tenho um forte interesse em criar soluções digitais otimizadas, trabalhando com tecnologias voltadas para back-end e front-end.</p>
+        <p>Nas horas livres, gosto de focar na otimização de desempenho do meu setup — recentemente montado em um gabinete Acegeek Atlas R338, equipado com uma RTX 3050 6GB e 16GB de RAM. Sou um jogador ávido focado no cenário competitivo de Valorant e CS2, mas também aproveito jogos de sobrevivência e simulação como Enshrouded e Euro Truck Simulator 2, acompanhados de uma playlist clássica de Sertanejo Universitário.</p>
+    </section>
+
+    <section id="formacao">
+        <h2>Formação</h2>
+        <div class="card">
+            <h3>Bacharelado em Ciência da Computação</h3>
+            <p><strong>Instituição:</strong> Uninter</p>
+            <p><strong>Situação:</strong> Em andamento</p>
+        </div>
+        <br>
+        <div class="card">
+            <h3>Tecnologias e Ferramentas</h3>
+            <p>Experiência prática em desenvolvimento utilizando Python, Django, HTML5, CSS3, e JavaScript nativo, com foco na construção de aplicações web e gestão de versão de projetos via GitHub.</p>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2>Portfólio</h2>
+        <p>Meus projetos práticos destacam a evolução das minhas habilidades técnicas:</p>
+        <div class="portfolio-grid">
+            <div class="card">
+                <h3>Atomic Escalada</h3>
+                <p>Website estruturado no formato "one-page", focado em oferecer uma navegação rápida, acessibilidade e excelente performance no carregamento.</p>
+                <a href="#" style="color: var(--accent-color);">Ver repositório</a>
+            </div>
+            <div class="card">
+                <h3>Pet Care</h3>
+                <p>Desenvolvimento de um sistema voltado para gerenciamento web, combinando lógica de programação e uma interface de usuário responsiva.</p>
+                <a href="#" style="color: var(--accent-color);">Ver repositório</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <p>Para parcerias, troca de experiências sobre código ou partidas cooperativas, deixe sua mensagem.</p>
+        
+        <form id="contactForm">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome">
+            </div>
+            <div>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div>
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="5"></textarea>
+            </div>
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+    </section>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const mensagem = document.getElementById('mensagem').value.trim();
+
+            // Verificando se os campos foram preenchidos [cite: 59]
+            if (nome === '' || email === '' || mensagem === '') {
+                alert('Atenção: Por favor, preencha todos os campos antes de enviar sua mensagem.');
+                return;
+            }
+
+            // Validando o formato do email informado [cite: 60]
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Erro: Certifique-se de que o e-mail informado possui um formato válido (exemplo: usuario@dominio.com).');
+                return;
+            }
+
+            // Limpando os campos do formulário e exibindo alerta de confirmação [cite: 61]
+            alert('Mensagem enviada com sucesso!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

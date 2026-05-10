@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Kauã Jientara</title>
+    <style>
+        /* Variáveis de cores para um visual moderno e escuro */
+        :root {
+            --cor-fundo: #121212;
+            --cor-texto: #ffffff;
+            --cor-destaque: #00ff41; /* Verde estilo terminal/matriz */
+            --cor-card: #1e1e1e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            margin: 0;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Menu de Navegação [cite: 18, 38] */
+        header {
+            background-color: #000;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--cor-destaque);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li { margin: 0 15px; }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        nav ul li a:hover { color: var(--cor-destaque); }
+
+        /* Estilização das Seções [cite: 52] */
+        section {
+            padding: 100px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: var(--cor-destaque);
+            border-bottom: 1px solid var(--cor-destaque);
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: var(--cor-card);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--cor-destaque);
+        }
+
+        /* Formulário de Contato [cite: 57] */
+        form {
+            display: grid;
+            gap: 15px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #333;
+            background: #2a2a2a;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: var(--cor-destaque);
+            color: black;
+            border: none;
+            padding: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        button:hover { background: #00cc33; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre mim</a></li>
+                <li><a href="#formacao">Formação</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="sobre">
+        <h2>Sobre mim</h2>
+        <div class="card">
+            <p>Prazer, meu nome é <strong>Kauã Jientara</strong>, tenho 19 anos e moro em Canoinhas. Atualmente, equilibro minha rotina entre o trabalho como Auxiliar de Faturamento no Centro de Distribuição Bruda e meus estudos na área de tecnologia.</p>
+            <p>Minha jornada começa cedo, às 5h da manhã, e depois de um dia de trabalho, dedico minhas noites para aprender programação e relaxar jogando CS2 com meus amigos. Me considero alguém inteligente e, apesar de me achar um pouco preguiçoso às vezes, sou muito focado quando o assunto é tecnologia e jogos competitivos.</p>
+        </div>
+    </section>
+
+    <section id="formacao">
+        <h2>Formação</h2>
+        <div class="card">
+            <h3>Bacharelado em Ciência da Computação</h3>
+            <p><strong>Uninter</strong> - 2º Ano (Em andamento)</p>
+            <p>Escolhi este curso porque sempre gostei de mexer em computadores. Ao descobrir que tudo o que eu usava — de sites a jogos — era feito através de código, decidi que queria aprender a criar meus próprios programas.</p>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2>Portfólio</h2>
+        <div class="card">
+            <h3>Projetos e Visão de Futuro</h3>
+            <p>Estou desenvolvendo minhas habilidades para, no futuro, ser um programador de sucesso. Meu objetivo é criar desde sites e aplicativos até jogos, ou atuar na área de qualidade, garantindo que os sistemas funcionem perfeitamente.</p>
+            <p><em>Links para repositórios em breve...</em></p>
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <form id="meuFormulario">
+            <input type="text" id="nome" placeholder="Seu Nome" required>
+            <input type="email" id="email" placeholder="Seu E-mail" required>
+            <textarea id="mensagem" rows="5" placeholder="Sua Mensagem" required></textarea>
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+    </section>
+
+    <script>
+        document.getElementById('meuFormulario').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const mensagem = document.getElementById('mensagem').value;
+
+            if(nome && email && mensagem) {
+                // Simulação de envio conforme requisito [cite: 61]
+                alert('Obrigado, ' + nome + '! Sua mensagem foi enviada com sucesso.');
+                this.reset();
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+        });
+    </script>
+
+</body>
+</html>
